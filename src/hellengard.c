@@ -43,13 +43,13 @@
 #include "vera.h"
 
 int main() {
-    uint8_t p = 0;
+    //uint8_t p = 0;
 
 	setDataPort(0);
 	setScreenScale(64, 64);
-
-	p = layerSetup(1, 0x61, 0x01, L1_MAP_BASE, FONT_LPETSCII, 0x0000, 0x0000);
-	printf("%u\n",p);
+	layer0Setup(0x61, 0x00, L0_MAP_BASE, FONT_LPETSCII, 0x0000, 0x0000);
+	layer1Setup(0x61, 0x01, L1_MAP_BASE, FONT_LPETSCII, 0x0000, 0x0000);
+	//printf("%u\n",p);
 	while(1){}
     return 0;
  }
