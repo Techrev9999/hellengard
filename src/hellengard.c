@@ -46,9 +46,9 @@ int main() {
     uint8_t p = 0;
 
 	//setDataPort(0);
-	//setScreenRes(320, 240);
+	//setScreenScale(64, 64);
 
-	p = layerSetup(1, 3, 1, 0x01, L1_MAP_BASE, FONT_LPETSCII, 0x0004, 0x0505);
+	p = layerSetup(1, 3, 1, 0x01, L1_MAP_BASE, FONT_LPETSCII, 0x0007, 0x0005);
 	printf("%u\n",p);
 	while(1){}
     return 0;
