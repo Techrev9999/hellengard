@@ -18,4 +18,4 @@ hellengard.prg: $(FILES)
 	-echo y | del *.s
 	-echo y | del *.o
 	-echo y | del *.prg
-	$(EMUDIR)\\x16emu -run -prg "$(EMUDIR)\\hellengard.prg"
+	$(EMUDIR)\\x16emu -run -debug -prg "$(EMUDIR)\\hellengard.prg"
