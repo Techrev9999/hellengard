@@ -1,18 +1,3 @@
-		//#Vera.setDataPort 0
-
-		//; set screen to 320x240
-		//#Vera.setScreenRes 320,240
-
-		//; setup layer 0: mode=0/e=1, map=32x32, map=$0000, tile=font0, h/v-scroll=0
-		//#Vera.layerSetup 0, %01100001, $00, L0_MAP_BASE, Vera.FONT_LPETSCII, $0000, $0000
-		//; setup layer 1: mode=0/e=1, map=64x32, map=$4000, tile=font0, h/v-scroll=0
-		//#Vera.layerSetup 1, %01100001, $01, L1_MAP_BASE, Vera.FONT_LPETSCII, $0000, $0000
-
-		//; copy the palette data over to VERA
-		//#Vera.copyDataToVera palette, Vera.PALETTE, 512
-		//; copy the 'font' data into low PETSCII location only copying 64 characters
-		//#Vera.copyDataToVera font, Vera.FONT_LPETSCII, 64*4*8
-
 		//; fill window: mapBase, numMapCols, c, r, w, h, chr, clr
 		//#Vera.fillWindow L0_MAP_BASE, 32, 1, 1, 32, 32, 24, 0			; clear layer0
 		//#Vera.fillWindow L1_MAP_BASE, 64, 1, 1, 28, 28, 0, 0			; HUD clear viewport to see layer0
@@ -47,9 +32,18 @@ int main() {
 
 	setDataPort(0);
 	setScreenScale(64, 64);
-	layer0Setup(0x61, 0x00, (L0_MAP_BASE >> 2), (FONT_LPETSCII >> 2), 0x0000, 0x0000);
-	layer1Setup(0x61, 0x01, (L1_MAP_BASE >> 2), (FONT_LPETSCII >> 2), 0x0000, 0x0000);
+	layer0Setup(0x61, 0x00, (L0_MAP_BASE1 >> 2), (FONT_LPETSCII >> 2), 0x0000, 0x0000);
+	layer1Setup(0x61, 0x01, (L1_MAP_BASE1 >> 2), (FONT_LPETSCII >> 2), 0x0000, 0x0000);
 	copyData();
+	fillWindow(32, 1, 1, 32, 32, 24, 0, L0_MAP_BASE);
+	fillWindow(64, 1, 1, 28, 28, 0, 0, L1_MAP_BASE);
+	fillWindow(64, 0, 0, 40, 1, 3, 0, L1_MAP_BASE);
+	fillWindow(64, 0, 29, 40, 1, 3, 0, L1_MAP_BASE);
+	fillWindow(64, 0, 0, 1, 30, 4, 0, L1_MAP_BASE);
+	fillWindow(64, 29, 0, 1, 30, 4, 0, L1_MAP_BASE);
+	fillWindow(64, 39, 0, 1, 30, 4, 0, L1_MAP_BASE);
+	fillWindow(64, 30, 1, 9, 9, 1, 0, L1_MAP_BASE);
+	fillWindow(64, 29, 9, 11, 1, 3, 0, L1_MAP_BASE);
 	//printf("%u\n",p);
 	while(1){}
     return 0;
