@@ -36,7 +36,7 @@ int main() {
 	mlayer1Setup(0x61, 0x01, L1_MAP_BASE, FONT_LPETSCII, 0x0000, 0x0000);
 	copyData();   //Need to fix this function so data is on the C side and addresses are passed to veralib
 	// numMapCols, c, r, w, h, chr, clr, map address
-	fillWindow(32, 1, 1, 32, 32, 24, 0, L0_MAP_BASE);  // Need to fix loops and fix so stride is automatically added in code.
+	fillWindow(32, 1, 1, 28, 28, 24, 0, L0_MAP_BASE);  // Still some bugs in here from the original.  I need to come up with a better system.  Works, though.
 	fillWindow(64, 1, 1, 28, 28, 0, 0, L1_MAP_BASE);
 	fillWindow(64, 0, 0, 40, 1, 3, 0, L1_MAP_BASE);
 	fillWindow(64, 0, 29, 40, 1, 3, 0, L1_MAP_BASE);
