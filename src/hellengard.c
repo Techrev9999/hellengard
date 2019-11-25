@@ -30,10 +30,10 @@
 int main() {
     //uint8_t p = 0;
 
-	setDataPort(0);  //set stride here?  Seems the best place.
+	setDataPort(1, 0);  //set stride here and dataport
 	setScreenScale(64, 64);
-	layer0Setup(0x61, 0x00, (L0_MAP_BASE1 >> 2), (FONT_LPETSCII >> 2), 0x0000, 0x0000);  //registers don't specify lower 2 bits.  Need to change this in veralib.
-	layer1Setup(0x61, 0x01, (L1_MAP_BASE1 >> 2), (FONT_LPETSCII >> 2), 0x0000, 0x0000);
+	layer0Setup(0x61, 0x00, (L0_MAP_BASE >> 2), (FONT_LPETSCII >> 2), 0x0000, 0x0000);  //registers don't specify lower 2 bits.  Need to change this in veralib.
+	layer1Setup(0x61, 0x01, (L1_MAP_BASE >> 2), (FONT_LPETSCII >> 2), 0x0000, 0x0000);
 	copyData();   //Need to fix this function so data is on the C side and addresses are passed to veralib
 	// numMapCols, c, r, w, h, chr, clr, map address
 	fillWindow(32, 1, 1, 32, 32, 24, 0, L0_MAP_BASE);  // Need to fix loops and fix so stride is automatically added in code.
