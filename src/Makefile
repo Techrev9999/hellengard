@@ -5,7 +5,7 @@
 # I haven't had time to make it cross platform. 
 
 # Location of folder containing the x16emu emulator
-EMUDIR = ../../emulator/x16emu
+EMUDIR = ../../../emulator/x16emu
 
 # Folder containing the compiled vera.lib	
 LIBRARIES = ../../lib
@@ -25,7 +25,7 @@ hellengard: $(FILES)
 	rm *.s
 	rm *.o
 	rm *.prg
-	$(EMUDIR)\\x16emu -run -prg "$(EMUDIR)\\hellengard.prg"
+	$(EMUDIR)/x16emu -run -prg "$(EMUDIR)/hellengard.prg"
 	
 test: $(FILES)
 	cc65 -t cx16 -I $(INCLUDE) hellengard.c
@@ -35,4 +35,4 @@ test: $(FILES)
 	rm *.s
 	rm *.o
 	rm *.prg
-	$(EMUDIR)\\x16emu -run -debug -prg "$(EMUDIR)\\hellengard.prg"
+	$(EMUDIR)/x16emu -run -debug -prg "$(EMUDIR)/hellengard.prg"
