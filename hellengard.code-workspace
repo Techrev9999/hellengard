@@ -7,7 +7,7 @@
 	"settings": {
 		"ca65.cl65.target": "cx16",
 		"ca65.emulatorOptions": "-run -prg",
-		"ca65.emulatorPath": "D:\\OneDrive\\X16Dev\\emulator\\x16emu\\x16emu.ext",
+		"ca65.emulatorPath": "D:\\OneDrive\\X16Dev\\emulator\\x16emu\\x16emu.exe",
 		"ca65.cc65": "D:\\OneDrive\\X16Dev\\tools\\cc65"
 	}
 }
