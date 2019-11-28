@@ -1,6 +1,7 @@
-SUBDIRS := src
+hellengard: 
+	$(MAKE) -C src
 
-$(SUBDIRS):
-	$(MAKE) -C $@
+test: 
+	$(MAKE) -C src test
 
 .PHONY: all $(SUBDIRS)

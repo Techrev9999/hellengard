@@ -17,7 +17,17 @@ FILES=\
 	hellengard.c
 
 
-hellengard.prg: $(FILES)
+hellengard: $(FILES)
+	cc65 -t cx16 -I $(INCLUDE) hellengard.c
+	ca65 -t cx16 hellengard.s
+	ld65 -t cx16 -L $(LIBRARIES) -o hellengard.prg hellengard.o vera.lib cx16.lib
+	copy hellengard.prg $(EMUDIR)
+	-echo y | del *.s
+	-echo y | del *.o
+	-echo y | del *.prg
+	$(EMUDIR)\\x16emu -run -prg "$(EMUDIR)\\hellengard.prg"
+	
+test: $(FILES)
 	cc65 -t cx16 -I $(INCLUDE) hellengard.c
 	ca65 -t cx16 hellengard.s
 	ld65 -t cx16 -L $(LIBRARIES) -o hellengard.prg hellengard.o vera.lib cx16.lib
