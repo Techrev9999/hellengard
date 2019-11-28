@@ -11,7 +11,7 @@ int main() {
 	setScreenScale(64, 64, 1);  //set the scale and set video mode to 1 (VGA)
 	mlayer0Setup(0x61, 0x00, L0_MAP_BASE, FONT_LPETSCII, 0x0000, 0x0000);  //layer 0 configuration options
 	mlayer1Setup(0x61, 0x01, L1_MAP_BASE, FONT_LPETSCII, 0x0000, 0x0000);  //layer 1 configuration options
-	copyData(512, (uint16_t)(&palette), PALETTE);   //Need to fix this function so data is on the C side and addresses are passed to veralib
+	copyData(32, (uint16_t)(&palette), PALETTE);   //Need to fix this function so data is on the C side and addresses are passed to veralib
 	copyData(2048, (uint16_t)(&fonthud), FONT_LPETSCII) ;
 	// number of columns, starting column, starting row, width, height, chacterr, color, layer map address
 	fillWindow(32, 1, 1, 28, 28, 6, 0, L0_MAP_BASE);  // Creates and fills an area with the selected char, using the selected font.

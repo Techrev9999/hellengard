@@ -65,9 +65,13 @@ default_palette.reverse()
 im = Image.open(args.input)
 im = im.convert('RGBA')
 p = np.array(im)
-
 # convert to sprite data
+tile_height = 8
+tile_width = 8
+num_tiles = int((im.height / tile_height) * (im.width / tile_width))
+print(num_tiles, " tiles.")
 i = 0
+bestbyte = 0
 with open(args.output, "w") as file:
     if args.f == 'c':
         file.write("uint8_t %s[] = {\n" % args.n)
@@ -75,50 +79,59 @@ with open(args.output, "w") as file:
         file.write("%s:\n" % args.n)
     if args.f == 'basic':
         line = int(args.n)
-    for y in range(im.height):
-        for x in range(im.width):
-            if i == 0:
-                if args.f == 'acme':
-                    file.write("    !byte ")
-                if args.f == 'basic':
-                    file.write("%i DATA " % line)
-                    line = line + 1
+    for ty in range(int(im.height / tile_height)):
+        for tx in range (int(im.width / tile_width)):
+            for y in range(tile_height):
+                for x in range(tile_width):
+                    if i == 0:
+                        if args.f == 'acme':
+                            file.write("    !byte ")
+                        if args.f == 'basic':
+                            file.write("%i DATA " % line)
+                            line = line + 1
 
-            # get pixel color
-            r, g, b, a = p[y][x]
+                    print(tx, ":", ty, ":", y+(ty*tile_height), ":", x+(tx*tile_width))
 
-            # use index 0 for transparent color
-            if a == 0:
-                best = 0
-            else:
-                # find best palette match, start searching from top to allow index 16 for black color
-                d = 1e9
-                best = 0
-                j = 255
-                for entry in default_palette:
-                    rp = ((entry >> 8) & 0xf) << 4
-                    gp = ((entry >> 4) & 0xf) << 4
-                    bp = (entry & 0xf) << 4
-                    dr = r - rp
-                    dg = g - gp
-                    db = b - bp
-                    d0 = dr * dr + dg * dg + db * db
-                    if d0 < d:
-                        best = j
-                        d = d0
-                    j = j - 1
-                
-            # write palette index
-            if args.f == 'c':
-                file.write("0x%02x," % r)
-            if args.f == 'acme' or args.f == 'basic':
-                file.write("$%02x" % best)
-                if i < 15:
-                    file.write(",")
-            i = i + 1
-            if i == 16:
-                file.write("\n")
-                i = 0
+                    # get pixel color
+                    r, g, b, a = p[y+(ty*tile_height)][x+(tx*tile_width)]
+
+                    # use index 0 for transparent color
+                    if a == 0:
+                        best = 0
+                    else:
+                        # find best palette match, start searching from top to allow index 16 for black color
+                        d = 1e9
+                        best = 0
+                        j = 15
+                        for entry in default_palette:
+                            rp = ((entry >> 8) & 0xf) << 4
+                            gp = ((entry >> 4) & 0xf) << 4
+                            bp = (entry & 0xf) << 4
+                            dr = r - rp
+                            dg = g - gp
+                            db = b - bp
+                            d0 = dr * dr + dg * dg + db * db
+                            if d0 < d:
+                                best = j
+                                d = d0
+                            j = j - 1
+                    #imageData[y*im.width+(x>>1)] += (best if x%2 != 0 else (best << 4))    
+                    # write palette index
+                    if x%2 !=0:
+                        bestbyte |= best 
+                        if args.f == 'c':
+                            file.write("0x%02x," % bestbyte)
+                        if args.f == 'acme' or args.f == 'basic':
+                            file.write("$%02x" % bestbyte)
+                            if i < 15:
+                                file.write(",")
+                        i = i + 1
+                        if i == 16:
+                            file.write("\n")
+                            i = 0
+                        bestbyte = 0
+                    else:
+                        bestbyte = (best << 4)
     if i != 0:
         file.write("\n")
     if args.f == 'c':

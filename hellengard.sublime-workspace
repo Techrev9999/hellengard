@@ -3,19 +3,14 @@
 	{
 		"selected_items":
 		[
+			[
+				"L",
+				"L0_MAP_BASE"
+			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "src/Makefile",
-			"settings":
-			{
-				"buffer_size": 551,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
 		{
 			"file": "Makefile",
 			"settings":
@@ -29,9 +24,9 @@
 			"file": "src/hellengard.c",
 			"settings":
 			{
-				"buffer_size": 2416,
+				"buffer_size": 2038,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -85,10 +80,18 @@
 	"expanded_folders":
 	[
 		"/D/OneDrive/X16Dev/source/hellengard",
-		"/D/OneDrive/X16Dev/source/hellengard/src"
+		"/D/OneDrive/X16Dev/source/hellengard/src",
+		"/D/OneDrive/X16Dev/source/hellengard/tools"
 	],
 	"file_history":
 	[
+		"/D/OneDrive/X16Dev/source/hellengard/src/font-hud.h",
+		"/D/OneDrive/X16Dev/source/hellengard/hellengard.c",
+		"/D/OneDrive/X16Dev/source/hellengard/src/font-hud.c",
+		"/D/OneDrive/X16Dev/source/hellengard/src/hellengard.c",
+		"/D/OneDrive/X16Dev/source/hellengard/src/fonthud.h",
+		"/D/OneDrive/X16Dev/source/hellengard/src/font-hud-palette.h",
+		"/D/OneDrive/X16Dev/source/hellengard/src/Makefile",
 		"/D/OneDrive/X16Dev/source/hellengard/Makefile",
 		"/D/OneDrive/X16Dev/source/hellengard/src/action.c",
 		"/D/OneDrive/X16Dev/source/compare/rom33.sym",
@@ -145,39 +148,11 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/Makefile",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 551,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								536,
-								536
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Makefile/Makefile.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "Makefile",
 					"semi_transient": false,
 					"settings":
@@ -206,20 +181,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 1,
 					"file": "src/hellengard.c",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2416,
+						"buffer_size": 2038,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2322,
-								2322
+								128,
+								128
 							]
 						],
 						"settings":
@@ -227,8 +202,8 @@
 							"syntax": "Packages/C++/C.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 174.222222222,
-						"translation.y": 510.222222222,
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -239,7 +214,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 28.0
+		"height": 31.0
 	},
 	"input":
 	{
@@ -280,7 +255,7 @@
 	"project": "hellengard.sublime-project",
 	"replace":
 	{
-		"height": 52.0
+		"height": 58.0
 	},
 	"save_all_on_build": true,
 	"select_file":
