@@ -14,7 +14,7 @@ int main() {
 	copyData(32, (uint16_t)(&palette), PALETTE);   //Need to fix this function so data is on the C side and addresses are passed to veralib
 	copyData(2048, (uint16_t)(&fonthud), FONT_LPETSCII) ;
 	// number of columns, starting column, starting row, width, height, chacterr, color, layer map address
-	fillWindow(32, 1, 1, 28, 28, 6, 0, L0_MAP_BASE);  // Creates and fills an area with the selected char, using the selected font.
+	fillWindow(32, 1, 1, 28, 28, 63, 0, L0_MAP_BASE);  // Creates and fills an area with the selected char, using the selected font.
 	fillWindow(64, 1, 1, 28, 28, 0, 0, L1_MAP_BASE);   // Currently that font is defined and copied over in vera.lib, but I will move
 	fillWindow(64, 0, 0, 40, 1, 3, 0, L1_MAP_BASE);    // some of that to the C side soon.
 	fillWindow(64, 0, 29, 40, 1, 3, 0, L1_MAP_BASE);

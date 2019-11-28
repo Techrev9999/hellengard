@@ -90,8 +90,6 @@ with open(args.output, "w") as file:
                             file.write("%i DATA " % line)
                             line = line + 1
 
-                    print(tx, ":", ty, ":", y+(ty*tile_height), ":", x+(tx*tile_width))
-
                     # get pixel color
                     r, g, b, a = p[y+(ty*tile_height)][x+(tx*tile_width)]
 
