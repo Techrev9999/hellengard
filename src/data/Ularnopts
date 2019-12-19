@@ -1,0 +1,15 @@
+#no-introduction
+#no-nap
+enable-checkpointing
+#bold-off
+#male
+female
+#character: klingon
+name: Satyr
+monster: "Aardvark"
+monster: "Bitch"
+monster: "Cad"
+monster: "Dweeb"
+monster: "Geek"
+monster: "Hippy"
+monster: "louie"
